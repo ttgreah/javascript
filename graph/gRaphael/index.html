@@ -1,29 +1,71 @@
-<!DOCTYPE html>
-<html>
 
+<!DOCTYPE html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>GETTING STARTED WITH ADOBE EDGE CODE</title>
-        <meta name="description" content="An interactive getting started guide for Adobe Edge Code.">
-        <link rel="stylesheet" href="main.css">
-        <link rel="stylesheet" type="text/css" href="demo.css">
-        <script type="text/javascript" src="raphael.js"></script>
-        <script type="text/javascript" src="g.raphael-min.js"></script>
-        <script type="text/javascript" scr="g.pie-min.js"></script>
+        <title>g·Raphaël Dynamic Pie Chart</title>
+        <link rel="stylesheet" href="css/demo.css" media="screen">
+        <link rel="stylesheet" href="demo-print.css" media="print">
+        <script src="js/raphael.js"></script>
+        <script src="js/g.raphael.js"></script>
+        <script src="js/g.pie.js"></script>
         <script>
             window.onload = function () {
-                var r = Raphael("holder");
+                var test = 320;
+                var data = [30, 20, 50];
+                var r = Raphael("holder"),
+                    pie = r.piechart(test, 240, 100, data,
+                                     { legend: ["%%.%% - Enterprise Users", "IE Users","test"],
+                                      legendpos: "east",
+                                      href: ["http://raphaeljs.com", "http://g.raphaeljs.com","http://inozyuku.com/"]});
 
-                r.text(320, 70, "Static Pie Chart").attr({ font: "20px sans-serif" });
-                r.piechart(320, 240, 150, [55, 20, 13, 32, 5, 1, 2, 10]);
+                r.text(320, 50, "Pie Chart").attr({ font: "40px sans-serif" });
+                pie.hover(function () {
+                    this.sector.stop();
+                    this.sector.scale(1.1, 1.1, this.cx, this.cy);
+
+                    if (this.label) {
+                        this.label[0].stop();
+                        this.label[0].attr({ r: 7.5 });
+                        this.label[1].attr({ "font-weight": 800 });
+                    }
+                }, function () {
+                    this.sector.animate({ transform: 's1 1 ' + this.cx + ' ' + this.cy }, 500, "bounce");
+
+                    if (this.label) {
+                        this.label[0].animate({ r: 5 }, 500, "bounce");
+                        this.label[1].attr({ "font-weight": 400 });
+                    }
+                });
             };
+        </script>
+        <script>
+            function onTitanium( params ) {
+                var params2 = "testtest";
+                document.getElementById("demo").innerHTML= params;
+            }
+            
+        </script>
+        <script>
+                var e = document.getElementById('myButton');
+                e.onclick = function () {
+                    alert("クリックされました！");
+                }
         </script>
     </head>
     <body class="raphael" id="g.raphael.dmitry.baranovskiy.com">
         <div id="holder"></div>
         <p>
+            Pie chart with legend, hyperlinks on two first sectors and hover effect.
+        </p>
+        <p>
             Demo of <a href="http://g.raphaeljs.com/">gRaphaël</a> JavaScript library.
         </p>
+        <div id="demo">test</div>
+        <form name="test">
+        <input type="button" name="yahoo" value="test" id="myButton">
+        <input type="button" name="yahoo" value="Yahoo!Japanへ" id="myButton">
+        </form>
+        <div id="demodemo">aaaaaaaaaaaaaa</div>
     </body>
 </html>

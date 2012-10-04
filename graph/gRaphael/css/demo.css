@@ -10,8 +10,8 @@ body {
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     -webkit-box-shadow: 0 1px 3px #666;
-    background: #ddd url(http://raphaeljs.com/images/bg.png);
-    margin: 0 auto;
+    background: #ccc url(http://raphaeljs.com/images/bg.png);
+    margin: 0 0;
     width: 640px;
     height: 480px;
 }
