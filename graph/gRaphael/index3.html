@@ -1,0 +1,22 @@
+
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta charset=utf-8 /> 
+<title>Raphael.JS TEST</title>
+<script type="text/javascript" src="raphael.js"></script>
+<script type="text/javascript">
+Raphael(function(){
+	var year = [2007,2008,2009,2010,2011,2012];
+	var data = [10,100,150,200,300,350];
+	var paper = Raphael(100,0,500,400);
+	for(var i=0;i<data.length;i++){
+		paper.rect(30+(i*30),400-data[i],20,data[i]).attr({ fill:'pink',stroke:'#FF8888'});
+		paper.text(40+(i*30),400-(data[i]+10),year[i]);
+	}
+});
+</script>
+<body>
+
+</body> 
+</html>

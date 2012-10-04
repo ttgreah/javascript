@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>GETTING STARTED WITH ADOBE EDGE CODE</title>
+        <meta name="description" content="An interactive getting started guide for Adobe Edge Code.">
+        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" type="text/css" href="demo.css">
+        <script type="text/javascript" src="raphael.js"></script>
+        <script type="text/javascript" src="g.raphael-min.js"></script>
+        <script type="text/javascript" scr="g.pie-min.js"></script>
+        <script>
+            window.onload = function () {
+                var r = Raphael("holder");
+
+                r.text(320, 70, "Static Pie Chart").attr({ font: "20px sans-serif" });
+                r.piechart(320, 240, 150, [55, 20, 13, 32, 5, 1, 2, 10]);
+            };
+        </script>
+    </head>
+    <body class="raphael" id="g.raphael.dmitry.baranovskiy.com">
+        <div id="holder"></div>
+        <p>
+            Demo of <a href="http://g.raphaeljs.com/">gRaphaël</a> JavaScript library.
+        </p>
+    </body>
+</html>
